@@ -6,7 +6,7 @@ import rateLimit from "express-rate-limit";
 
 const app = express();
 
-// ✅ FIX: Put CORS before all security middlewares
+//  CORS before all security middlewares
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*"); // 👈 For development
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH, OPTIONS");
@@ -17,7 +17,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ✅ Explicit cors setup (for production, restrict origins)
+// Explicit cors setup (for production, restrict origins)
 app.use(cors({
   origin: ["http://localhost:8080", "https://gauravchaudhari.vercel.app"],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
